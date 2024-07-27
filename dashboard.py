@@ -13,13 +13,14 @@ def initialize_firebase():
         firebase_admin.initialize_app(cred, {
             'databaseURL': 'https://nitsgms-default-rtdb.firebaseio.com/'
         })
-        bucket = storage.bucket()
+        
 
 # Streamlit app
 st.title("NIT Silchar Grievance Management System - Admin Dashboard")
 
 # Initialize Firebase
 initialize_firebase()
+bucket = storage.bucket()
 
 # Fetch complaints from Firebase
 def fetch_complaints():
@@ -52,6 +53,7 @@ def display_analytics(complaints):
         st.write("No complaints to analyze.")
 
 def doc_upload():
+
     st.write('Document Upload for RAG pipeline of chatbot')
     uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
 
