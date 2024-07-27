@@ -8,9 +8,11 @@ import matplotlib.pyplot as plt
 # Initialize Firebase only if it has not been initialized
 def initialize_firebase():
     if not firebase_admin._apps:
-        firebase_config = st.secrets["firebase"]
-        cred = credentials.Certificate(firebase_config)
-        firebase_admin.initialize_app(cred)
+        fb_credentials = st.secrets["firebase"]['my_project_settings']
+        cred = credentials.Certificate(fb_credentials)
+        firebase_admin.initialize_app(cred, {
+            'databaseURL': 'https://nitsgms-default-rtdb.firebaseio.com/'
+        })
 
 # Streamlit app
 st.title("NIT Silchar Grievance Management System - Admin Dashboard")
