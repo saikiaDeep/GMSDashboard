@@ -68,8 +68,6 @@ def doc_upload():
         file_url = blob.public_url
         
         st.success("Uploaded successfully!")
-        st.write(f"File URL: {file_url}")
-        st.success("Uploaded successfully!")
 
 # Main function
 def main():
