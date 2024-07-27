@@ -12,7 +12,7 @@ def initialize_firebase():
         cred = credentials.Certificate(fb_credentials)
         firebase_admin.initialize_app(cred, {
             'databaseURL': 'https://nitsgms-default-rtdb.firebaseio.com/',
-            'storageBucket': 'gs://nitsgms.appspot.com'
+            'storageBucket': 'nitsgms.appspot.com'
         })
         
 
@@ -52,6 +52,10 @@ def display_analytics(complaints):
         st.line_chart(complaints_over_time)
     else:
         st.write("No complaints to analyze.")
+
+
+bucket = storage.bucket()
+
 
 def doc_upload():
 
