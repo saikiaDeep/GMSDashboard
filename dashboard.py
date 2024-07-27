@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 # Initialize Firebase only if it has not been initialized
 def initialize_firebase():
     if not firebase_admin._apps:
-        fb_credentials = st.secrets["firebase"]['my_project_settings']
+        fb_credentials = dict(st.secrets["firebase"]["my_project_settings"])
         cred = credentials.Certificate(fb_credentials)
         firebase_admin.initialize_app(cred, {
             'databaseURL': 'https://nitsgms-default-rtdb.firebaseio.com/'
