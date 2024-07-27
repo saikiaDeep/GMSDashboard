@@ -1,4 +1,4 @@
-
+import toml
 import streamlit as st
 import firebase_admin
 from firebase_admin import credentials, db
@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 # Initialize Firebase only if it has not been initialized
 def initialize_firebase():
     if not firebase_admin._apps:
-        cred = credentials.Certificate("cred/cred.json")
+        cred = credentials.Certificate(st.secrets["firebase"])
         firebase_admin.initialize_app(cred, {
             'databaseURL': 'https://nitsgms-default-rtdb.firebaseio.com/'
         })
