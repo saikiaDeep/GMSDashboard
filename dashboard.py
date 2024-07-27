@@ -11,7 +11,8 @@ def initialize_firebase():
         fb_credentials = dict(st.secrets["firebase"]["my_project_settings"])
         cred = credentials.Certificate(fb_credentials)
         firebase_admin.initialize_app(cred, {
-            'databaseURL': 'https://nitsgms-default-rtdb.firebaseio.com/'
+            'databaseURL': 'https://nitsgms-default-rtdb.firebaseio.com/',
+            'storageBucket': 'gs://nitsgms.appspot.com'
         })
         
 
